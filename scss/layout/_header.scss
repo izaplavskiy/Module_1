@@ -1,0 +1,163 @@
+#header {
+	.container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		padding: 20px 20px;
+
+		@include media('>=tablet') {
+			padding: 20px 0 20px 15px;
+		}
+
+		@include media('>=desktop') {
+			padding: 60px 0 60px 15px;
+		}
+	}
+}
+
+.logo {
+	max-width: 120px;
+
+	img {
+		display: block;
+		max-width: 100%;
+	}
+}	
+
+.navbar {
+	@include media('>=tablet') {
+		width: calc(100% - 190px);
+	}
+
+	.nav-drop {
+		@extend %listreset;
+		@include animate(opacity, 0.4s, ease)
+		
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		flex-wrap: wrap;
+		position: absolute;
+		z-index: 999;
+		top: 70px;
+		right: 0;
+		left: 0;
+		overflow-x: hidden;
+		overflow-y: auto;
+		width: 100%;
+		max-height: calc(100vh - 60px);
+		background-color: rgba(67, 72, 77, 1);
+		opacity: 0;
+		visibility: hidden;
+		
+		@include media('>=tablet') {
+			position: static;
+			justify-content: flex-end;
+			align-items: center;
+			flex-direction: row;
+			opacity: 1;
+			visibility: visible;
+			background-color: $white;
+		}
+
+		li {
+			padding: 10px 0 10px 20px;
+			border-bottom: 1px solid $white;
+
+			@include media('>=tablet') {
+				margin-right: 15px;
+			}
+
+			@include media('>=desktop') {
+				margin-right: 30px;
+			}
+
+			&.active {
+				a {
+					color: #358ed7;
+				}
+			}
+			
+			a {
+				font-size: 22px;
+				font-weight: 500;
+				line-height: 1.944;
+				color: $white;
+
+				@include media('>=tablet') {
+					color: $black;
+					font-size: 18px;
+				}
+
+				&:hover {
+					color: #358ed7;
+				}
+			}
+		}
+
+		.nav-active & {
+			opacity: 1;
+			visibility: visible;
+			padding: 0;
+			width: 100%;
+			max-width: 100%;
+		}
+	}
+}
+
+.nav-opener {
+	display: block;
+	width: 31px;
+	height: 31px;
+	background: rgba(53, 142, 215, .8);
+	position: relative;
+	border-radius: 3px;
+	text-indent: -9999px;
+	overflow: hidden;
+	z-index: 11;
+
+	@include media('>=tablet') {
+		display: none;
+	}
+
+	&:before, &:after, span {
+		background: $white;
+		border-radius: 4px;
+		position: absolute;
+		top: 16px;
+		left: 25%;
+		right: 25%;
+		height: 3px;
+		margin-top: -2px;
+		transition: all 0.2s linear;
+	}
+	
+	&:before {
+		content: "";
+		top: 10px;
+	}
+
+	&:after {
+		content: "";
+		top: 22px;
+	}
+
+	.nav-active & {
+		&:before, &:after {
+			transform:rotate(45deg);
+			top:16px;
+			left:15%;
+			right:15%;
+		}
+
+		&:after {
+			transform:rotate(-45deg);
+		}
+
+		span {
+			opacity: 0;
+		}
+	}
+}
+

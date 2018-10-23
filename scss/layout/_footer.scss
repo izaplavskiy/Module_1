@@ -1,0 +1,178 @@
+#footer {
+	background-color: $black;
+	color: rgba(#bdc6cf,.7);
+	padding: 55px 0 35px;
+	font-size: 16px;
+
+	.container {
+		@include media ('>=tablet') {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		}
+	}
+
+	h3 {
+		color: $white;
+		line-height: 1.9444;
+		font-weight: 500;
+	}
+
+	a {
+		display: inline-block;
+		color: rgba(#bdc6cf,.7);
+
+		&:hover {
+			color: $white;
+		}
+	}
+
+	i {
+	@include vhalign
+
+		position: absolute;
+	}
+}
+
+.col {
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #bdc6cf;
+	margin-bottom: 20px;
+
+	@include media ('>=tablet') {
+		width: 33.332%;
+		padding: 0 10px;
+	}
+
+	@include media ('>=widescreen') {
+		width: 21%;
+	}
+
+	&:last-child {
+		@include media ('>=tablet') {
+			width: 33.332%;
+		}
+
+		@include media ('>=widescreen') {
+			width: 33.5%
+		}
+	}
+
+	.logo {
+		display: inline-block;
+		margin-bottom: 20px;
+
+		@include media ('>=tablet') {
+			margin-bottom: 25px;
+		}
+
+		a {
+			max-width: 160px;
+		}
+	}
+
+	.copyright {
+		font-size: 12px;
+		line-height: 1;
+		color: rgba(#bdc6cf,.3);
+	}
+
+	.text-block {
+		@include media ('>=desktop') {
+			max-width: 255px;
+
+			p {
+				margin-bottom: 15px;
+			}
+		}
+	}
+}
+
+.social-networks {
+	@extend %listreset;
+
+	display: flex;
+	margin-bottom: 15px;
+	flex-wrap: wrap;
+
+	@include media ('>=tablet') {
+		margin-bottom: 20px;
+	}
+	
+	li {	
+		margin-bottom: 7px;
+		margin-right: 10px;
+
+		a {
+			position: relative;
+			width: 45px;
+			height: 45px;
+			border-radius: 50%;
+			background-color: rgba($light-gray,.3);
+			margin-right: 10px;
+			
+			&:hover {
+				background-color: rgba($light-gray,1);
+			}
+			
+			i {
+				color: #bdc6cf;
+			}
+
+			.icon-facebook {
+				font-size: 18px;
+			}
+
+			.icon-twitter {
+				font-size: 13px;
+			}
+
+			.icon-insta {
+				font-size: 17px;
+			}
+		}
+	}	
+}
+
+address {
+	color: rgba(#bdc6cf,.7);
+	font-style: normal;
+	
+	p {
+		margin-bottom: 10px;
+	}
+}
+
+.form-subsribe {
+	position: relative;
+
+	input[type="submit"],
+	input[type="text"] {
+		height: 42px;
+		width: 100%;
+		background: transparent;
+		border-radius: 5px;
+		padding: 5px 62px 5px 20px;
+		color: $white;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 1.5;
+		border: 2px solid rgba(#e1e8ee,.2);
+
+		@include placeholder {
+			color: rgba($white,.7);
+		}
+	}
+
+	.btn {
+		position: absolute;
+		top: 0;
+		right: 0;
+		min-width: 42px;
+		height: 42px;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+}
